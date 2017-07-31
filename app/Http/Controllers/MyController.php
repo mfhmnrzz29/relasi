@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\OrangTua;
+use App\Anak;
 
 class MyController extends Controller
 {
@@ -19,6 +20,7 @@ class MyController extends Controller
 
     public function tampilmodel(){
     	$ortu = OrangTua::all();
-    	return view('about', compact('ortu'));
+    	$anak = Anak::all();
+    	return view('about', compact('anak','ortu'));
     }
 }
