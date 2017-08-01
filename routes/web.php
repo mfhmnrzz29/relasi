@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('/orangtua');
+    return redirect('/anak');
 });
 // Route::get('/orangtua', function(){
 // 	$or = App\Orangtua::all();
@@ -29,5 +29,6 @@ Route::get('/', function () {
 // Route::get('/ortu', 'MyController@tampilmodel');
 
 Route::resource('orangtua', 'OrangTuaController');
+Route::resource('anak', 'AnakController');
 
 Auth::routes();

@@ -8,41 +8,41 @@
 			<div class="panel-title pull-right">
 			<a href="{{ URL::previous() }}">Kembali</a></div></div>
 			<div class="panel-body">
-				<form action="{{route('anak.store')}}" method="post">
-					{{csrf_field()}}
+				<form action="{{route('anak.update', $anak->id)}}" method="post">
+					<input type="hidden" name="_method" value="PUT">
+					<input type="hidden" name="_token" value="{{csrf_token()}}">
 
 					<div class="form-group">
 						<label class="control-lable">Nama</label>
-						<input type="text" name="nama" class="form-control" required="" >
+						<input type="text" name="nama" class="form-control" required="" value="{{$anak->nama}}">
 					</div>
+
 					<div class="form-group">
 						<label class="control-lable">Nama Orang Tua</label>
-						<select name="ortu" class="form-control">
-							<option>
-								@foreach
-								{{$data->orangtua->nama_ayah}} dan {{$data->orangtua->nama_ibu}}
-								@endforeach
+						<select name="orangtua_id" class="form-control">
+							@foreach($ortu as $data)
+							<option value="{{$data->id}}">
+								{{$data->nama_ayah}} dan {{$data->nama_ibu}}
 							</option>
+							@endforeach
 						</select>
 					</div>
+
 					<div class="form-group">
-						<label class="control-lable">Umur Ayah</label>
-						<input type="text" name="umur_ayah" class="form-control" >
+						<label class="control-lable">Umur</label>
+						<input type="text" name="umur" class="form-control" required="" value="{{$anak->umur}}">
 					</div>
-					<div class="form-group">
-						<label class="control-lable">Umur Ibu</label>
-						<input type="text" name="umur_ibu" class="form-control" >
-					</div>
+
 					<div class="form-group">
 						<label class="control-lable">Alamat</label>
-						<textarea class="form-control" rows="3" name="alamat" required=""></textarea>
+						<textarea class="form-control" rows="3" name="alamat" required="">{{$anak->alamat}}</textarea>
 					</div>
+
 					<div class="form-group">
 						<button type="submit" class="btn btn-success">Simpan</button>
 						<button type="reset" class="btn btn-danger">Reset</button>
 					</div>
-				</form>
-				
+				</form>		
 			</div>
 		</div>
 	</div>

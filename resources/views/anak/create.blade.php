@@ -17,21 +17,17 @@
 					</div>
 					<div class="form-group">
 						<label class="control-lable">Nama Orang Tua</label>
-						<select name="ortu" class="form-control">
-							<option>
-								@foreach
-								{{$data->orangtua->nama_ayah}} dan {{$data->orangtua->nama_ibu}}
-								@endforeach
+						<select name="orangtua_id" class="form-control">
+							@foreach($ortu as $data)
+							<option value="{{$data->id}}">
+								{{$data->nama_ayah}} dan {{$data->nama_ibu}}
 							</option>
+							@endforeach
 						</select>
 					</div>
 					<div class="form-group">
-						<label class="control-lable">Umur Ayah</label>
-						<input type="text" name="umur_ayah" class="form-control" >
-					</div>
-					<div class="form-group">
-						<label class="control-lable">Umur Ibu</label>
-						<input type="text" name="umur_ibu" class="form-control" >
+						<label class="control-lable">Umur</label>
+						<input type="text" name="umur" class="form-control" required="" >
 					</div>
 					<div class="form-group">
 						<label class="control-lable">Alamat</label>
