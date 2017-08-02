@@ -2,28 +2,22 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<center><h1>Data Anak</h1></center>
+		<center><h1>Data Orang Tua</h1></center>
 		<div class="panel panel-primary">
-			<div class="panel-heading">Data Anak
+			<div class="panel-heading">Data Orang Tua
 			<div class="panel-title pull-right">
 			<a href="{{ URL::previous() }}">Kembali</a></div></div>
 			<div class="panel-body">
-				<form action="{{route('anak.store')}}" method="post">
+				<form action="{{route('orangtua.store')}}" method="post">
 					{{csrf_field()}}
 
 					<div class="form-group">
-						<label class="control-lable">Nama</label>
-						<input type="text" name="nama" class="form-control" required="" >
+						<label class="control-lable">Nama Ayah</label>
+						<input type="text" name="nama_ayah" class="form-control" required="" >
 					</div>
 					<div class="form-group">
-						<label class="control-lable">Nama Orang Tua</label>
-						<select name="ortu" class="form-control">
-							<option>
-								@foreach
-								{{$data->orangtua->nama_ayah}} dan {{$data->orangtua->nama_ibu}}
-								@endforeach
-							</option>
-						</select>
+						<label class="control-lable">Nama Ibu</label>
+						<input type="text" name="nama_ibu" class="form-control">
 					</div>
 					<div class="form-group">
 						<label class="control-lable">Umur Ayah</label>

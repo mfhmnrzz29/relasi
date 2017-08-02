@@ -30,5 +30,7 @@ Route::get('/', function () {
 
 Route::resource('orangtua', 'OrangTuaController');
 Route::resource('anak', 'AnakController');
+Route::resource('author', 'AuthorController');
+Route::resource('book', 'BookController');
 
 Auth::routes();

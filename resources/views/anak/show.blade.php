@@ -16,18 +16,25 @@
 						<label class="control-lable">Nama</label>
 						<input type="text" name="nama" class="form-control" required="" value="{{$anak->nama}}" readonly="">
 					</div>
+
 					<div class="form-group">
 						<label class="control-lable">Nama Orang Tua</label>
-						<input class="form-control" type="text" name="orangtua_id" readonly="" value="{{$anak->orangtua->nama_ayah}} dan {{$anak->orangtua->nama_ibu}}">
-						</select>
+						<input type="text" name="orangtua_id" value="{{$data->$ortu->nama_ayah}} dan{{$data->$ortu->nama_ibu}}" readonly="">
 					</div>
+
 					<div class="form-group">
 						<label class="control-lable">Umur</label>
 						<input type="text" name="umur" class="form-control" required="" value="{{$anak->umur}}" readonly="">
 					</div>
+
 					<div class="form-group">
 						<label class="control-lable">Alamat</label>
-						<textarea class="form-control" rows="3" name="alamat" required="" readonly="">{{$anak->alamat}}</textarea>
+						<textarea class="form-control" rows="3" name="alamat" readonly="" required="">{{$anak->alamat}}</textarea>
+					</div>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Simpan</button>
+						<button type="reset" class="btn btn-danger">Reset</button>
 					</div>
 				</form>		
 			</div>

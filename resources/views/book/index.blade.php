@@ -2,41 +2,39 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-	<div class="col-md-3">
+	<div class="col-md-2">
 	<!--nav-->
 				@include('layouts.dashboard')
 			<!--end nav-->
 	</div>
-	<div class="col-md-9">
-		<center><h1>Data Anak</h1></center>
+	<div class="col-md-10">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Data Anak
-			<div class="panel-title pull-right"><a href="/anak/create">Tambah Data</a></div></div>
+			<div class="panel-heading">Data Buku
+			<div class="panel-title pull-right"><a href="/book/create">Tambah Data</a></div></div>
 			<div class="panel-body">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Nama </th>
-							<th>Umur</th>
-							<th>Nama Orangtua</th>
-							<th>Alamat</th>
+							<th>Title </th>
+							<th>Author</th>
+							<th>Amount</th>
+							<th>Cover</th>
 							<th colspan="3"><center>Aksi</center></th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($anak as $data)
+						@foreach($book as $data)
 						<tr>
-							<td>{{$data->nama}}</td>
-							<td>{{$data->umur}}</td>
+							<td>{{$data->title}}</td>
 							<!-- $var->method di controller -->
-							<td>{{$data->orangtua->nama_ayah}} dan {{$data->orangtua->nama_ibu}}
-							</td>
-							<td>{{$data->alamat}}</td>
+							<td>{{$data->author->name}}</td>
+							<td>{{$data->amount}}</td>
+							<td><img src="{{asset('img/'.$data->cover.'')}}" style="width: 100px; height: 100px"></td>
 							<td>
-								<a class="btn btn-success" href="/anak/{{$data->id}}/edit">Edit</a>
+								<a class="btn btn-success" href="/book/{{$data->id}}/edit">Edit</a>
 							</td>
 							<td>
-								<a class="btn btn-primary" href="/anak/{{$data->id}}">Show</a>
+								<a class="btn btn-primary" href="/book/{{$data->id}}">Show</a>
 							</td>
 							<td>
 								<form action="{{route('anak.destroy', $data->id)}}" method="POST">
@@ -50,7 +48,6 @@
 						@endforeach
 					</tbody>
 				</table>
-				</div>
 			</div>
 		</div>
 	</div>

@@ -8,46 +8,37 @@
 	<!--nav-->
 				@include('layouts.dashboard')
 			<!--end nav-->
-	</div>
+			</div>
 	<div class="col-md-10">
-		<center><h1>Data Orang Tua</h1></center>
 		<div class="panel panel-primary">
-			<div class="panel-heading">Data Orang Tua
-			<div class="panel-title pull-right"><a href="/orangtua/create">Tambah Data</a></div></div>
+			<div class="panel-heading">Data Author
+			<div class="panel-title pull-right"><a href="/author/create">Tambah Data</a></div></div>
 			<div class="panel-body">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Nama Ayah</th>
-							<th>Nama Ibu</th>
-							<th>Umur Ayah</th>
-							<th>Umur Ibu</th>
-							<th>Alamat</th>
-							<th>Nama Anak</th>
+							<th>Nama Penulis</th>
+							<th>Books</th>
 							<th colspan="3"><center>Aksi</center></th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($ortu as $data)
+						@foreach($author as $data)
 						<tr>
-							<td>{{$data->nama_ayah}}</td>
-							<td>{{$data->nama_ibu}}</td>
-							<td>{{$data->umur_ayah}}</td>
-							<td>{{$data->umur_ibu}}</td>
-							<td>{{$data->alamat}}</td>
+							<td>{{$data->name}}</td>
 							<td>
-								@foreach($data->anak as $a)
-								<li>{{$a->nama}}</li>
+								@foreach($data->book as $a)
+								<li>{{$a->title}}</li>
 								@endforeach
 							</td>
 							<td>
-								<a class="btn btn-success" href="/orangtua/{{$data->id}}/edit">Edit</a>
+								<a class="btn btn-success" href="/author/{{$data->id}}/edit">Edit</a>
 							</td>
 							<td>
-								<a class="btn btn-primary" href="/orangtua/{{$data->id}}">Show</a>
+								<a class="btn btn-primary" href="/author/{{$data->id}}">Show</a>
 							</td>
 							<td>
-								<form action="{{route('orangtua.destroy', $data->id)}}" method="POST">
+								<form action="{{route('author.destroy', $data->id)}}" method="POST">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token">
 									<input type="submit" class="btn btn-danger" value="Delete">
